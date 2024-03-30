@@ -1,0 +1,55 @@
+https://localhost:5500/em
+fist ddl command
+1=create
+how to create user
+create user ali identified by ali;
+we face error so we write below command
+alter session set "_oracle_script"=true;
+now session altered and we write first command then our user is created
+now we connect the user 
+conn
+enter user_name:ali
+enter user_password:1234
+it will again give error
+ORA-01045: user UMER lacks CREATE SESSION privilege; logon denied
+now i will again connect to the admin user or system user and give garnt or access to our user
+conn
+enter user_name:system
+enter user_password:1234
+grant connect to ali;
+now i give access to new user
+now  i can connect to new user
+how to drop user
+go in system  and run command (drop user cascade;)
+we face error then (alter session set "_oracle_script"=true;)
+then again (drop user username cascade;) now the user will droped
+show user and go in that in which user you want to create table
+create table employee (id number(10),name varchar2(20),address varchar2(30));
+you face error then go in again system write command alter session set "_oracle_script"=true; and the write command grant all privileges to academy;
+and then go in user in which user you want to create table
+create table employee (id number(10),name varchar2(20),address varchar2(30));
+insertiing data into table 
+insert into employee values(1,'Umair Jadoon','Havelian Abbottabad');
+for retreving whole data from table
+select *from employee;
+for deleteing row or record in table(delete employee where id=5;)
+for deleting whole table we use drop command(drop table tablename)
+if you want to set the displaying table structure use this command(set line 100) youn can change any thing instead of 100
+find name and course,contact  from havelian (select name,course,contact from student where address='Havelian';)
+if you want to permanent save the table or changes you did in table(commit;)
+a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values COMMAND IS(select distinct address from student;).
+By using the DISTINCT keyword in a function called COUNT is used for counting, 
+we can return the number of different addrresses(select count(distinct address) from student;).
+The WHERE clause is used to filter records,it retrevie those who full fll the condition(select name from student where id=1;)
+WHERE clause is not only used in SELECT statements, it is also used in UPDATE, DELETE, etc.!
+we can use other operators with where clause(>,<,>=,<=,<>,in,between,like)
+The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+The BETWEEN operator is inclusive: begin and end values are included. (select name,course from student where id between 1 and 5; )
+To display the  outside the range of the previous example, use NOT BETWEEN:(select name,course from student where id not between 2 and 5;)
+
+
+
+
+
+
+
